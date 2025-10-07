@@ -13,3 +13,6 @@ function runTests() {
     const task = createTask('Test Task');
   assertEquals(task.text, 'Test Task', 'createTask sets correct text');
   assertEquals(task.done, false, 'createTask initializes with done=false');
+
+   addTaskToList(task);
+  assertEquals(tasks.length, 1, 'Task added to list');
