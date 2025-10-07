@@ -19,3 +19,9 @@ function runTests() {
 
   toggleTask(task.id);
   assertEquals(tasks[0].done, true, 'toggleTask marks task as done');
+
+  toggleTask(task.id);
+  assertEquals(tasks[0].done, false, 'toggleTask marks task as not done');
+
+    removeTask(task.id);
+  assertEquals(tasks.length, 0, 'Task removed successfully');
