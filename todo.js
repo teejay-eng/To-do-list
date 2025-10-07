@@ -7,3 +7,5 @@ function assertEquals(actual, expected, message) {
 }
 
 function runTests() {
+    
+    tasks = [];
