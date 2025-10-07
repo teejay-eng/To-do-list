@@ -16,3 +16,6 @@ function runTests() {
 
    addTaskToList(task);
   assertEquals(tasks.length, 1, 'Task added to list');
+
+  toggleTask(task.id);
+  assertEquals(tasks[0].done, true, 'toggleTask marks task as done');
