@@ -32,5 +32,13 @@ function renderTasks() {
     li.className = task.done ? 'done' : '';
     li.innerHTML = `
 
+    <span>${task.text}</span>
+
+      <div class="task-buttons">
+        <button onclick="handleToggle('${task.id}')">${task.done ? 'Undo' : 'Done'}</button>
+        <button onclick="handleRemove('${task.id}')">Delete</button>
+      </div>
+
+
 
 
