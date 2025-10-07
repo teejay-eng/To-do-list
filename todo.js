@@ -7,5 +7,9 @@ function assertEquals(actual, expected, message) {
 }
 
 function runTests() {
-    
+
     tasks = [];
+
+    const task = createTask('Test Task');
+  assertEquals(task.text, 'Test Task', 'createTask sets correct text');
+  assertEquals(task.done, false, 'createTask initializes with done=false');
