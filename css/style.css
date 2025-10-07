@@ -1,1 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: hsl(202, 88%, 47%);
+  margin: 0;
+  padding: 0;
+}
 
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgb(20, 189, 231);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task-buttons button {
+  margin-left: 5px;
+}
