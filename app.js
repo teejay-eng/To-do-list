@@ -38,6 +38,20 @@ function renderTasks() {
         <button onclick="handleToggle('${task.id}')">${task.done ? 'Undo' : 'Done'}</button>
         <button onclick="handleRemove('${task.id}')">Delete</button>
       </div>
+      `;
+    list.appendChild(li);
+  });
+}
+
+function handleToggle(id) {
+  toggleTask(id);
+  renderTasks();
+}
+
+function handleRemove(id) {
+  removeTask(id);
+  renderTasks();
+}
 
 
 
