@@ -5,3 +5,5 @@ function assertEquals(actual, expected, message) {
     console.log(`✅ ${message}`);
   }
 }
+
+function runTests() {
