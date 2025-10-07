@@ -24,6 +24,13 @@ function removeTask(id) {
   tasks = tasks.filter(t => t.id !== id);
 }
 
+function renderTasks() {
+  const list = document.getElementById('taskList');
+  list.innerHTML = '';
+  tasks.forEach(task => {
+    const li = document.createElement('li');
+    li.className = task.done ? 'done' : '';
+    li.innerHTML = `
 
 
 
