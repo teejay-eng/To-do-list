@@ -1,30 +1,67 @@
+
+//Task
+// {
+//     activity
+//     time,
+// done,
+//
+// }
+
 let tasks = [];
 
-function createTask(text) {
-  return {
-    id: Date.now().toString(),
-    text,
-    done: false
-  };
+// createTask
+// deleteTask
+// markingTaskDone
+// updateUI
+
+
+function addTask(){
+    let titleInput = document.getElementById('taskInput');
+    let title = titleInput.value;
+
+
+    let dateInput = document.getElementById('taskTime');
+    let date = dateInput.value;
+
+    createTask(title, date);
+
 }
 
-function addTaskToList(task) {
-  tasks.push(task);
+function createTask(title, time) {
+
+    let task = {
+        id : Date.now(),
+        activity: title,
+        time: time,
+        isDone: false
+    }
+    tasks.push(task);
+    updateUI();
+
 }
 
-function toggleTask(id) {
-
-  const task = tasks.find(t => t.id === id);
-  if (task) {
-    task.done = !task.done;
-  }
+function deleteTask(id) {
+    for (let t of tasks) {
+        if(t.id  === id) {
+            delete tasks[t];
+        }
+    }
+    updateUI();
 }
 
-function removeTask(id) {
-  tasks = tasks.filter(t => t.id !== id);
+
+function markTaskAsDone(id){
+    for (let t of tasks) {
+        if(t.id  === id) {
+            t.isDone = !t.isDone;
+        }
+    }
+    updateUI();
 }
 
-function renderTasks() {
+
+
+function updateUI() {
   const list = document.getElementById('taskList');
   list.innerHTML = '';
   tasks.forEach(task => {
@@ -32,27 +69,13 @@ function renderTasks() {
     li.className = task.done ? 'done' : '';
     li.innerHTML = `
 
-    <span>${task.text}</span>
+    <span>${task.activity}</span>
 
       <div class="task-buttons">
-        <button onclick="handleToggle('${task.id}')">${task.done ? 'Undo' : 'Done'}</button>
-        <button onclick="handleRemove('${task.id}')">Delete</button>
+        <button onclick="markTaskAsDone('${task.id}')">${task.done ? 'Undo' : 'Done'}</button>
+        <button onclick="deleteTask('${task.id}')">Delete</button>
       </div>
       `;
     list.appendChild(li);
   });
 }
-
-function handleToggle(id) {
-  toggleTask(id);
-  renderTasks();
-}
-
-function handleRemove(id) {
-  removeTask(id);
-  renderTasks();
-}
-
-
-
-
