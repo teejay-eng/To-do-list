@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <h1>To-Do List</h1>
 
-      <label for="taskInput">Task Activity</label>
-    <input type="text" id="taskInput" placeholder="Enter a new task" />
+    <div class="task-form">
+        <label for="taskInput">Task</label>
+        <input type="text" id="taskInput" placeholder="What do you need to do?" />
 
+        <label for="taskTime">Due Time</label>
+        <input type="datetime-local" id="taskTime" />
 
-      <label for="taskTime">Task Time</label>
-    <input type="datetime-local" id="taskTime" placeholder="Select a date" />
+        <button onclick="addTask()">Add Task</button>
+    </div>
 
-    <button onclick="addTask()">Add Task</button>
-    <ul id="taskList"></ul>
-  </div>
-  <script src="app.js"></script>
+    <ul id="taskList" class="task-list"></ul>
+</div>
+
+<script src="app.js"></script>
 </body>
-
 </html>
-

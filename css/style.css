@@ -1,54 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: hsl(202, 88%, 47%);
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    padding: 20px;
 }
 
 .container {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: rgb(20, 189, 231);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-input {
-  width: 70%;
-  padding: 10px;
-  font-size: 16px;
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
-button {
-  padding: 10px 15px;
-  margin-left: 5px;
-  font-size: 16px;
+.task-form input[type="text"],
+.task-form input[type="datetime-local"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 20px;
+.task-form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.task-form button:hover {
+    background-color: #0056b3;
 }
 
-li.done {
-  text-decoration: line-through;
-  color: gray;
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.task-list li.done {
+    background-color: #d4edda;
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-time {
+    font-size: 0.85em;
+    color: #666;
 }
 
 .task-buttons button {
-  margin-left: 5px;
+    margin-left: 8px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.task-buttons button:first-child {
+    background-color: #28a745;
+    color: white;
+}
+
+.task-buttons button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+.task-buttons button:hover {
+    opacity: 0.9;
 }

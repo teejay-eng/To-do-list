@@ -58,17 +58,29 @@ function markTaskAsDone(id){
 function updateUI() {
     const list = document.getElementById('taskList');
     list.innerHTML = '';
+
     tasks.forEach(task => {
         const li = document.createElement('li');
         li.className = task.isDone ? 'done' : '';
+
+        const date = new Date(task.time);
+        const formattedTime = date.toLocaleString();
+
         li.innerHTML = `
-      <span>${task.activity}</span>
+      <div class="task-info">
+        <strong>${task.activity}</strong>
+        <span class="task-time">${formattedTime}</span>
+      </div>
       <div class="task-buttons">
-        <button onclick="markTaskAsDone('${task.id}')">${task.isDone ? 'Undo' : 'Done'}</button>
+        <button onclick="markTaskAsDone('${task.id}')">
+          ${task.isDone ? 'Undo' : 'Done'}
+        </button>
         <button onclick="deleteTask('${task.id}')">Delete</button>
       </div>
     `;
+
         list.appendChild(li);
     });
 }
+
 
