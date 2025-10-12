@@ -41,41 +41,34 @@ function createTask(title, time) {
 }
 
 function deleteTask(id) {
-    for (let t of tasks) {
-        if(t.id  === id) {
-            delete tasks[t];
-        }
-    }
+    tasks = tasks.filter(task => task.id != id);
     updateUI();
 }
 
 
 function markTaskAsDone(id){
     for (let t of tasks) {
-        if(t.id  === id) {
+        if(t.id  == id) {
             t.isDone = !t.isDone;
         }
     }
     updateUI();
 }
 
-
-
 function updateUI() {
-  const list = document.getElementById('taskList');
-  list.innerHTML = '';
-  tasks.forEach(task => {
-    const li = document.createElement('li');
-    li.className = task.done ? 'done' : '';
-    li.innerHTML = `
-
-    <span>${task.activity}</span>
-
+    const list = document.getElementById('taskList');
+    list.innerHTML = '';
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = task.isDone ? 'done' : '';
+        li.innerHTML = `
+      <span>${task.activity}</span>
       <div class="task-buttons">
-        <button onclick="markTaskAsDone('${task.id}')">${task.done ? 'Undo' : 'Done'}</button>
+        <button onclick="markTaskAsDone('${task.id}')">${task.isDone ? 'Undo' : 'Done'}</button>
         <button onclick="deleteTask('${task.id}')">Delete</button>
       </div>
-      `;
-    list.appendChild(li);
-  });
+    `;
+        list.appendChild(li);
+    });
 }
+
